@@ -1,0 +1,44 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    margin-top: -90px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    width: 200px;
+}
+
+.container .display {
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+    border: 1px solid grey;
+}
+
+.row-1,.row-2,.row-3,.row-4 {
+    display: flex;
+    margin-top: 8px;
+    width: 150px;
+    gap: 25px
+}
+
+.numbers, .operator {
+    height: 35px;
+    width: 40px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
