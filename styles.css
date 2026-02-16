@@ -25,6 +25,11 @@ h1 {
     height: 50px;
     margin-bottom: 10px;
     border: 1px solid grey;
+    display: block;
+    text-align: right;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 25px;
 }
 
 .row-1,.row-2,.row-3,.row-4 {
@@ -39,6 +44,7 @@ h1 {
     width: 40px;
     box-sizing: border-box;
     text-align: center;
+    font-size: 23px;
 }
 
 
