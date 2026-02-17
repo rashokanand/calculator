@@ -25,9 +25,14 @@ function operate(operator, num1, num2) {
 
 //Update number variables and operator
 const container = document.querySelector(".container");
+const display = document.querySelector(".display");
 container.addEventListener("click", e => {
-    if (e.target.textContent === "1") {
-        num1 = 1;
-        console.log("1 was clicked");
+    if (/[0-9]/g.test(e.target.textContent) && e.target != display) {
+        console.log("num was clicked");
+        display.textContent += e.target.textContent;
     }
+    if (/[+\-x=÷]/g.test(e.target.textContent) && e.target != display) {
+        display.textContent += e.target.textContent;
+    }
+    if (e.target.textContent === "AC") display.textContent = "";
 })
