@@ -48,8 +48,10 @@ container.addEventListener("click", e => {
     //Clear display
     (e.target.textContent === "AC")? display.textContent = "":0;
     
-    //Capture numbers and operator into variables
+    
     if (e.target.textContent === "=") {
+
+        //Capture numbers and operator into variables
         let expr = display.textContent;
         let arr = expr.split(/[+x÷\-]/,2); //split expression on operator
         [num1, num2] = [+arr[0],+arr[1] ]; //Convert to integers
