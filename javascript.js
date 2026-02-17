@@ -43,4 +43,7 @@ numbers.forEach(addEventListener("click", e => {
     display.textContent += (e.target.textContent === "-")? e.target.textContent:"";
     display.textContent += (e.target.textContent === "x")? e.target.textContent:"";
     display.textContent += (e.target.textContent === "÷")? e.target.textContent:"";
+
+    (e.target.textContent === "AC")? display.textContent = "":0;
+    
 }))
