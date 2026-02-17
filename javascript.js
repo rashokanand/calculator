@@ -28,7 +28,8 @@ const container = document.querySelector(".container");
 const display = document.querySelector(".display");
 const numbers = document.querySelectorAll(".numbers");
 
-numbers.forEach(addEventListener("click", e => {    
+container.addEventListener("click", e => {
+    //Display numbers and operators when clicked    
     display.textContent += (e.target.textContent === "0")? e.target.textContent:"";
     display.textContent += (e.target.textContent === "1")? e.target.textContent:"";
     display.textContent += (e.target.textContent === "2")? e.target.textContent:"";
@@ -44,6 +45,13 @@ numbers.forEach(addEventListener("click", e => {
     display.textContent += (e.target.textContent === "x")? e.target.textContent:"";
     display.textContent += (e.target.textContent === "÷")? e.target.textContent:"";
 
+    //Clear display
     (e.target.textContent === "AC")? display.textContent = "":0;
     
-}))
+    //Capture numbers and operator into variables
+    if (e.target.textContent === "=") {
+        let expr = display.textContent;
+        let arr = expr.split(/[+x÷\-]/,2);
+        console.log(arr);
+    }
+})
