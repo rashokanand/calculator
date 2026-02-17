@@ -52,11 +52,15 @@ container.addEventListener("click", e => {
     if (e.target.textContent === "=") {
         let expr = display.textContent;
         let arr = expr.split(/[+x÷\-]/,2); //split expression on operator
-        [num1, num2] = arr;
+        [num1, num2] = [+arr[0],+arr[1] ]; //Convert to integers
 
         operator = expr.at(expr.search(/[+x÷\-]/));
         //Handle divide and multiply operators
         operator = (operator === 'x')? "*":
         (operator === "÷")? "/": operator;
+
+        //Operate
+        let ans = operate(operator,num1, num2);
+        display.textContent = ans;
     }
 })
