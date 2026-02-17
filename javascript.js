@@ -51,7 +51,12 @@ container.addEventListener("click", e => {
     //Capture numbers and operator into variables
     if (e.target.textContent === "=") {
         let expr = display.textContent;
-        let arr = expr.split(/[+x÷\-]/,2);
-        console.log(arr);
+        let arr = expr.split(/[+x÷\-]/,2); //split expression on operator
+        [num1, num2] = arr;
+
+        operator = expr.at(expr.search(/[+x÷\-]/));
+        //Handle divide and multiply operators
+        operator = (operator === 'x')? "*":
+        (operator === "÷")? "/": operator;
     }
 })
