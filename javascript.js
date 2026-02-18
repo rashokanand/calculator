@@ -82,12 +82,10 @@ function displayAns(expr) {
         operatorIndex = expr.slice(1).search(/[+\-x÷]/);
         operator = expr.slice(1).at(operatorIndex);
     }
-    console.log(operator);
     if (operator) {
         num1 = +expr.slice(0,operatorIndex + 1);
         num2 = +expr.slice(operatorIndex + 2);
 
-        console.log(`num1: ${num1}, num2: ${num2}`);
     } else return 0;
 
     //Handle div by 0 by throwing an error
