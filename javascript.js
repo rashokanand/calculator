@@ -30,9 +30,14 @@ const numberBtns = document.querySelectorAll(".numbers");
 const operatorBtns = document.querySelectorAll(".operator");
 const ansBtn = document.querySelector(".ans");
 const clearBtn = document.querySelector(".clear");
+let isAns = false; //flag to clear display for new operation
 
 numberBtns.forEach(el => el.addEventListener("click", e => {
-    display.textContent += e.target.textContent;
+    if (!isAns) display.textContent += e.target.textContent;
+    else {
+        display.textContent = e.target.textContent;
+        isAns = false;
+    }
     }
 )
 )
@@ -49,8 +54,12 @@ operatorBtns.forEach(el => el.addEventListener("click", e => {
     if (!operatorString.includes(display.textContent.at(-1)) && display.textContent != "") {
         displayAns(display.textContent);
         display.textContent += e.target.textContent;
+        isAns = false; //Change flag to take digits as input after operator
     } else if (operatorString.includes(display.textContent.at(-1)) && display.textContent != "-")
-        display.textContent = display.textContent.slice(0,-1) + e.target.textContent;
+        {
+            display.textContent = display.textContent.slice(0,-1) + e.target.textContent;
+            isAns = false;
+        }
 }
 ))
 
@@ -76,8 +85,11 @@ function displayAns(expr) {
     } else return 0;
 
     //Handle div by 0 by throwing an error
+
     if (operator === "÷" && num2 === 0) display.textContent = "Div by 0 Error"; else {
         let ans = operate(operator, num1, num2);
     display.textContent = !Number.isInteger(ans)? ans.toFixed(2):ans; // round result if float
+
     }
+    isAns = true;
 }
