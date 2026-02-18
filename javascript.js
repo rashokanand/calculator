@@ -54,18 +54,23 @@ operatorBtns.forEach(el => el.addEventListener("click", e => {
     if (!operatorString.includes(display.textContent.at(-1)) && display.textContent != "") {
         displayAns(display.textContent);
         display.textContent += e.target.textContent;
+        isDecimal = false; //Change flag to take new decimal number
         isAns = false; //Change flag to take digits as input after operator
     } else if (operatorString.includes(display.textContent.at(-1)) && display.textContent != "-")
         {
             display.textContent = display.textContent.slice(0,-1) + e.target.textContent;
             isAns = false;
+            isDecimal = false;
         }
 }
 ))
 
 ansBtn.addEventListener("click", e => displayAns(display.textContent));
 
-clearBtn.addEventListener("click", e => display.textContent = "");
+clearBtn.addEventListener("click", e => {
+    display.textContent = "";
+    isDecimal = false;
+});
 
 //display ans function
 function displayAns(expr) {
@@ -86,17 +91,24 @@ function displayAns(expr) {
 
     //Handle div by 0 by throwing an error
 
-    if (operator === "÷" && num2 === 0) display.textContent = "Div by 0 Error"; else {
+    if (operator === "÷" && num2 === 0) {
+        display.textContent = "Div by 0 Error";
+        isDecimal = true;
+    }
+    else {
         let ans = operate(operator, num1, num2);
-    display.textContent = !Number.isInteger(ans)? ans.toFixed(2):ans; // round result if float
-
+        isDecimal = Number.isInteger(ans)? false: true; // check if ans is decimal
+        display.textContent = !Number.isInteger(ans)? ans.toFixed(2):ans; // round result if float
     }
     isAns = true;
 }
 
 //Add decimal functionality
 const dotBtn = document.querySelector(".dot");
+let isDecimal = false; //flag to check if num is already decimal
 dotBtn.addEventListener("click", e => {
-    
+    if (!isDecimal) {
     display.textContent += ".";
+    isDecimal = true;
+    }
 })
