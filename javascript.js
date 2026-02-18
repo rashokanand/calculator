@@ -46,7 +46,11 @@ operatorBtns.forEach(el => el.addEventListener("click", e => {
     //Display is not empty and last character is not operator
     if (!operatorString.includes(display.textContent.at(-1)) && display.textContent != "") {
         display.textContent += e.target.textContent;
-    } else display.textContent = display.textContent.slice(0,-1) + e.target.textContent;
+    } else if (operatorString.includes(display.textContent.at(-1)) && display.textContent != "-")
+        display.textContent = display.textContent.slice(0,-1) + e.target.textContent;
 }
 ))
 
+function displayAns() {
+    
+}
