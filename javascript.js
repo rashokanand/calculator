@@ -74,8 +74,7 @@ display.addEventListener("keydown", e => {
 
     //Handle operators
     console.log(e.key);
-    if (operatorString.includes(e.key)) 
-        {
+    if (operatorString.includes(e.key)) {
             let keyPressed = (e.key === "/")? "÷":(e.key === "*")?"x":e.key;
             //Allow entering '-' when display is empty
             if (display.textContent === '' && keyPressed === '-') {
@@ -96,7 +95,11 @@ display.addEventListener("keydown", e => {
                     isAns = false;
                     isDecimal = false;
                 }
-        }
+    }
+
+    // Handle "="
+    if (e.key === "=" || e.key === 'Enter') displayAns(display.textContent);
+
 });
 
 operatorBtns.forEach(el => el.addEventListener("click", e => {
