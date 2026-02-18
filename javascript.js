@@ -65,7 +65,15 @@ display.addEventListener("keypress", e => {
     }
 
     //Handle dot
+    if (e.key === '.') {
+        if (!isDecimal) {
+        display.textContent += ".";
+        isDecimal = true;
+        }
+    }
 
+    //Handle operators
+    
 });
 
 operatorBtns.forEach(el => el.addEventListener("click", e => {
