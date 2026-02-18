@@ -26,14 +26,19 @@ function operate(operator, num1, num2) {
 //Update number variables and operator
 const container = document.querySelector(".container");
 const display = document.querySelector(".display");
-const numbers = document.querySelectorAll(".numbers");
+const numberBtns = document.querySelectorAll(".numbers");
+const operatorBtns = document.querySelectorAll(".operator");
 
-container.addEventListener("click", e => {
-    
+numberBtns.forEach(el => el.addEventListener("click", e => {
+    display.textContent += e.target.textContent;
+    }
+)
+)
+
+operatorBtns.forEach(el => el.addEventListener("click", e => {
     //Allow entering '-' when display is empty
     if (display.textContent === '' && e.target.textContent === '-') {
         display.textContent = '-';
     }
-    
-
-})
+}
+))
