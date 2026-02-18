@@ -53,7 +53,7 @@ numberBtns.forEach(el => el.addEventListener("click", e => {
 const numString = "0123456789"
 const operatorString = "+-/*";
 
-display.addEventListener("keypress", e => {
+display.addEventListener("keydown", e => {
     //Handle numeric input
     if (numString.includes(e.key)) {
         if (!isAns) display.textContent += e.key;
@@ -73,7 +73,30 @@ display.addEventListener("keypress", e => {
     }
 
     //Handle operators
-    
+    console.log(e.key);
+    if (operatorString.includes(e.key)) 
+        {
+            let keyPressed = (e.key === "/")? "÷":(e.key === "*")?"x":e.key;
+            //Allow entering '-' when display is empty
+            if (display.textContent === '' && keyPressed === '-') {
+                display.textContent = '-';
+            }
+
+            // Change operator if new operator is entered when it already exists
+            const operatorString = "+-x÷";
+            //Display is not empty and last character is not operator
+            if (!operatorString.includes(display.textContent.at(-1)) && display.textContent != "") {
+                displayAns(display.textContent);
+                display.textContent += keyPressed;
+                isDecimal = false; //Change flag to take new decimal number
+                isAns = false; //Change flag to take digits as input after operator
+            } else if (operatorString.includes(display.textContent.at(-1)) && display.textContent != "-")
+                {
+                    display.textContent = display.textContent.slice(0,-1) + keyPressed;
+                    isAns = false;
+                    isDecimal = false;
+                }
+        }
 });
 
 operatorBtns.forEach(el => el.addEventListener("click", e => {
