@@ -85,6 +85,11 @@ display.addEventListener("keydown", e => {
             //Display is not empty and last character is not operator
             if (!operatorString.includes(display.textContent.at(-1)) && display.textContent != "") {
                 displayAns(display.textContent);
+                // display must clear if there is error in previous calculation
+                if (display.textContent === "Div by 0 Error") {
+                    display.textContent = "";
+                    return 0;
+                }
                 display.textContent += keyPressed;
                 isDecimal = false; //Change flag to take new decimal number
                 isAns = false; //Change flag to take digits as input after operator
@@ -124,6 +129,11 @@ operatorBtns.forEach(el => el.addEventListener("click", e => {
     //Display is not empty and last character is not operator
     if (!operatorString.includes(display.textContent.at(-1)) && display.textContent != "") {
         displayAns(display.textContent);
+        // display must clear if there is error in previous calculation
+        if (display.textContent === "Div by 0 Error") {
+            display.textContent = "";
+            return 0;
+        }
         display.textContent += e.target.textContent;
         isDecimal = false; //Change flag to take new decimal number
         isAns = false; //Change flag to take digits as input after operator
