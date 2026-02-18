@@ -30,9 +30,11 @@ const numberBtns = document.querySelectorAll(".numbers");
 const operatorBtns = document.querySelectorAll(".operator");
 const ansBtn = document.querySelector(".ans");
 const clearBtn = document.querySelector(".clear");
+const isAns = false; //flag to clear display for new operation
 
 numberBtns.forEach(el => el.addEventListener("click", e => {
-    display.textContent += e.target.textContent;
+    if (!isAns) display.textContent += e.target.textContent;
+    else display.textContent = e.target.textContent;
     }
 )
 )
@@ -76,8 +78,8 @@ function displayAns(expr) {
     } else return 0;
 
     //Handle div by 0 by throwing an error
-    if (operator === "÷" && num2 === 0) display.textContent = "Div by 0 Error"; else {
-
+    if (operator === "÷" && num2 === 0) display.textContent = "Div by 0 Error"; 
+    else {
     display.textContent = operate(operator, num1, num2).toFixed(4); // round result
     }
 }
