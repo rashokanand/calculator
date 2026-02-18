@@ -113,3 +113,16 @@ dotBtn.addEventListener("click", e => {
     isDecimal = true;
     }
 })
+
+//Add backspace functionality
+const backBtn = document.querySelector(".back");
+backBtn.addEventListener("click", e => {
+    const displayText = display.textContent;
+    if (isAns) {
+    display.textContent = "";
+    isDecimal = false;
+    } else {
+        display.textContent = displayText.slice(0,-1);
+        isDecimal = displayText.at(-1) === "."? false:true; //Check if deleted char is "."
+    }
+})
