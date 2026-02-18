@@ -54,9 +54,9 @@ operatorBtns.forEach(el => el.addEventListener("click", e => {
 }
 ))
 
-ansBtn.addEventListener("click", e => {
-    displayAns(display.textContent);
-})
+ansBtn.addEventListener("click", e => displayAns(display.textContent));
+
+clearBtn.addEventListener("click", e => display.textContent = "");
 
 //display ans function
 function displayAns(expr) {
