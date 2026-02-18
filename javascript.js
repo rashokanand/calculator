@@ -75,5 +75,5 @@ function displayAns(expr) {
         console.log(`num1: ${num1}, num2: ${num2}`);
     } else return 0;
 
-    display.textContent = operate(operator, num1, num2);
+    display.textContent = operate(operator, num1, num2).toFixed(4); // round result
 }
