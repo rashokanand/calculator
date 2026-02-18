@@ -75,5 +75,9 @@ function displayAns(expr) {
         console.log(`num1: ${num1}, num2: ${num2}`);
     } else return 0;
 
+    //Handle div by 0 by throwing an error
+    if (operator === "÷" && num2 === 0) display.textContent = "Div by 0 Error"; else {
+
     display.textContent = operate(operator, num1, num2).toFixed(4); // round result
+    }
 }
