@@ -73,7 +73,6 @@ display.addEventListener("keydown", e => {
     }
 
     //Handle operators
-    console.log(e.key);
     if (operatorString.includes(e.key)) {
             let keyPressed = (e.key === "/")? "÷":(e.key === "*")?"x":e.key;
             //Allow entering '-' when display is empty
@@ -99,6 +98,18 @@ display.addEventListener("keydown", e => {
 
     // Handle "="
     if (e.key === "=" || e.key === 'Enter') displayAns(display.textContent);
+
+    //Backspace
+    if (e.key === 'Backspace') {
+        const displayText = display.textContent;
+        if (isAns) {
+        display.textContent = "";
+        isDecimal = false;
+        } else {
+            display.textContent = displayText.slice(0,-1);
+            isDecimal = displayText.at(-1) === "."? false:true; //Check if deleted char is "."
+        }
+    }
 
 });
 
