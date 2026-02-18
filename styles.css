@@ -39,7 +39,7 @@ h1 {
     gap: 25px
 }
 
-.numbers, .operator {
+.numbers, .operator, .clear, .ans {
     height: 35px;
     width: 40px;
     box-sizing: border-box;

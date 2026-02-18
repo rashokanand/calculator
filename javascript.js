@@ -40,5 +40,13 @@ operatorBtns.forEach(el => el.addEventListener("click", e => {
     if (display.textContent === '' && e.target.textContent === '-') {
         display.textContent = '-';
     }
+
+    // Change operator if new operator is entered when it already exists
+    const operatorString = "+-x÷";
+    //Display is not empty and last character is not operator
+    if (!operatorString.includes(display.textContent.at(-1)) && display.textContent != "") {
+        display.textContent += e.target.textContent;
+    } else display.textContent = display.textContent.slice(0,-1) + e.target.textContent;
 }
 ))
+
