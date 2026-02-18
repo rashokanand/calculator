@@ -19,8 +19,8 @@ let num1, num2, operator;
 function operate(operator, num1, num2) {
     if (operator === "+") return add(num1, num2);
     if (operator === "-") return subtract(num1, num2);
-    if (operator === "*") return multiply(num1, num2);
-    if (operator === "/") return divide(num1, num2);
+    if (operator === "x") return multiply(num1, num2);
+    if (operator === "÷") return divide(num1, num2);
 }
 
 //Update number variables and operator
@@ -45,12 +45,29 @@ operatorBtns.forEach(el => el.addEventListener("click", e => {
     const operatorString = "+-x÷";
     //Display is not empty and last character is not operator
     if (!operatorString.includes(display.textContent.at(-1)) && display.textContent != "") {
+        displayAns(display.textContent);
         display.textContent += e.target.textContent;
     } else if (operatorString.includes(display.textContent.at(-1)) && display.textContent != "-")
         display.textContent = display.textContent.slice(0,-1) + e.target.textContent;
 }
 ))
 
-function displayAns() {
-    
+//display ans function
+function displayAns(expr) {
+    const operatorString = "+-x÷";
+    let arr = [];
+    let operator, operatorIndex;
+    if (expr.slice(1).search(/[+\-x÷]/) > -1) {
+        operatorIndex = expr.slice(1).search(/[+\-x÷]/);
+        operator = expr.slice(1).at(operatorIndex);
+    }
+    console.log(operator);
+    if (operator) {
+        num1 = +expr.slice(0,operatorIndex + 1);
+        num2 = +expr.slice(operatorIndex + 2);
+
+        console.log(`num1: ${num1}, num2: ${num2}`);
+    } else return 0;
+
+    display.textContent = operate(operator, num1, num2);
 }
