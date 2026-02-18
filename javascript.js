@@ -19,7 +19,7 @@ let num1, num2, operator;
 function operate(operator, num1, num2) {
     if (operator === "+") return add(num1, num2);
     if (operator === "-") return subtract(num1, num2);
-    if (operator === "x") return multiply(num1, num2);
+    if (operator === "X") return multiply(num1, num2);
     if (operator === "÷") return divide(num1, num2);
 }
 
@@ -75,14 +75,14 @@ body.addEventListener("keydown", e => {
 
     //Handle operators
     if (operatorString.includes(e.key)) {
-            let keyPressed = (e.key === "/")? "÷":(e.key === "*")?"x":e.key;
+            let keyPressed = (e.key === "/")? "÷":(e.key === "*")?"X":e.key;
             //Allow entering '-' when display is empty
             if (display.textContent === '' && keyPressed === '-') {
                 display.textContent = '-';
             }
 
             // Change operator if new operator is entered when it already exists
-            const operatorString = "+-x÷";
+            const operatorString = "+-X÷";
             //Display is not empty and last character is not operator
             if (!operatorString.includes(display.textContent.at(-1)) && display.textContent != "") {
                 displayAns(display.textContent);
@@ -126,7 +126,7 @@ operatorBtns.forEach(el => el.addEventListener("click", e => {
     }
 
     // Change operator if new operator is entered when it already exists
-    const operatorString = "+-x÷";
+    const operatorString = "+-X÷";
     //Display is not empty and last character is not operator
     if (!operatorString.includes(display.textContent.at(-1)) && display.textContent != "") {
         displayAns(display.textContent);
@@ -156,11 +156,11 @@ clearBtn.addEventListener("click", e => {
 
 //display ans function
 function displayAns(expr) {
-    const operatorString = "+-x÷";
+    const operatorString = "+-X÷";
     let arr = [];
     let operator, operatorIndex;
-    if (expr.slice(1).search(/[+\-x÷]/) > -1) {
-        operatorIndex = expr.slice(1).search(/[+\-x÷]/);
+    if (expr.slice(1).search(/[+\-X÷]/) > -1) {
+        operatorIndex = expr.slice(1).search(/[+\-X÷]/);
         operator = expr.slice(1).at(operatorIndex);
     }
     if (operator) {
