@@ -37,6 +37,7 @@ numberBtns.forEach(el => el.addEventListener("click", e => {
     else {
         display.textContent = e.target.textContent;
         isAns = false;
+        isDecimal = false;
     }
     }
 )
