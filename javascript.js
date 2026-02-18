@@ -28,6 +28,8 @@ const container = document.querySelector(".container");
 const display = document.querySelector(".display");
 const numberBtns = document.querySelectorAll(".numbers");
 const operatorBtns = document.querySelectorAll(".operator");
+const ansBtn = document.querySelector(".ans");
+const clearBtn = document.querySelector(".clear");
 
 numberBtns.forEach(el => el.addEventListener("click", e => {
     display.textContent += e.target.textContent;
@@ -51,6 +53,10 @@ operatorBtns.forEach(el => el.addEventListener("click", e => {
         display.textContent = display.textContent.slice(0,-1) + e.target.textContent;
 }
 ))
+
+ansBtn.addEventListener("click", e => {
+    displayAns(display.textContent);
+})
 
 //display ans function
 function displayAns(expr) {
