@@ -33,6 +33,11 @@ const ansBtn = document.querySelector(".ans");
 const clearBtn = document.querySelector(".clear");
 let isAns = false; //flag to clear display for new operation
 
+const dotBtn = document.querySelector(".dot");
+let isDecimal = false; //flag to check if num is already decimal
+
+const backBtn = document.querySelector(".back");
+
 numberBtns.forEach(el => el.addEventListener("click", e => {
     if (!isAns) display.textContent += e.target.textContent;
     else {
@@ -46,7 +51,10 @@ numberBtns.forEach(el => el.addEventListener("click", e => {
 
 //Keyboard numpad support
 const numString = "0123456789"
+const operatorString = "+-/*";
+
 display.addEventListener("keypress", e => {
+    //Handle numeric input
     if (numString.includes(e.key)) {
         if (!isAns) display.textContent += e.key;
         else {
@@ -55,6 +63,9 @@ display.addEventListener("keypress", e => {
             isDecimal = false;
         }
     }
+
+    //Handle dot
+
 });
 
 operatorBtns.forEach(el => el.addEventListener("click", e => {
@@ -117,8 +128,6 @@ function displayAns(expr) {
 }
 
 //Add decimal functionality
-const dotBtn = document.querySelector(".dot");
-let isDecimal = false; //flag to check if num is already decimal
 dotBtn.addEventListener("click", e => {
     if (!isDecimal) {
     display.textContent += ".";
@@ -127,7 +136,6 @@ dotBtn.addEventListener("click", e => {
 })
 
 //Add backspace functionality
-const backBtn = document.querySelector(".back");
 backBtn.addEventListener("click", e => {
     const displayText = display.textContent;
     if (isAns) {
