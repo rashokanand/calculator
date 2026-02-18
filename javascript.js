@@ -26,6 +26,7 @@ function operate(operator, num1, num2) {
 //Update number variables and operator
 const container = document.querySelector(".container");
 const display = document.querySelector(".display");
+display.focus();
 const numberBtns = document.querySelectorAll(".numbers");
 const operatorBtns = document.querySelectorAll(".operator");
 const ansBtn = document.querySelector(".ans");
@@ -42,6 +43,19 @@ numberBtns.forEach(el => el.addEventListener("click", e => {
     }
 )
 )
+
+//Keyboard numpad support
+const numString = "0123456789"
+display.addEventListener("keypress", e => {
+    if (numString.includes(e.key)) {
+        if (!isAns) display.textContent += e.key;
+        else {
+            display.textContent = e.key;
+            isAns = false;
+            isDecimal = false;
+        }
+    }
+});
 
 operatorBtns.forEach(el => el.addEventListener("click", e => {
     //Allow entering '-' when display is empty
