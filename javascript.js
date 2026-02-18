@@ -24,6 +24,7 @@ function operate(operator, num1, num2) {
 }
 
 //Update number variables and operator
+const body = document.querySelector("body");
 const container = document.querySelector(".container");
 const display = document.querySelector(".display");
 display.focus();
@@ -53,7 +54,7 @@ numberBtns.forEach(el => el.addEventListener("click", e => {
 const numString = "0123456789"
 const operatorString = "+-/*";
 
-display.addEventListener("keydown", e => {
+body.addEventListener("keydown", e => {
     //Handle numeric input
     if (numString.includes(e.key)) {
         if (!isAns) display.textContent += e.key;
