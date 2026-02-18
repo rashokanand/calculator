@@ -93,3 +93,10 @@ function displayAns(expr) {
     }
     isAns = true;
 }
+
+//Add decimal functionality
+const dotBtn = document.querySelector(".dot");
+dotBtn.addEventListener("click", e => {
+    
+    display.textContent += ".";
+})
