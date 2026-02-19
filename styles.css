@@ -9,6 +9,9 @@ body {
 h1 {
     text-align: center;
     margin-top: -90px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    color: rgb(9, 123, 123);
 }
 
 .container {
@@ -22,20 +25,24 @@ h1 {
 }
 
 .container .display {
-    width: 200px;
-    height: 50px;
-    margin-bottom: 10px;
-    border: 1px solid grey;
+    margin-bottom: 4px;
     display: block;
     text-align: right;
     padding: 15px;
     box-sizing: border-box;
-    font-size: 25px;
+}
+
+.display {
+    background-color: rgba(1, 64, 75, 0.885);
+    height: 60px;
+    width: 190px;
+    color:rgb(247, 249, 250);
+    font-size: 32px;
 }
 
 .row-1,.row-2,.row-3,.row-4 {
     display: flex;
-    margin-top: 3px;
+    margin-top: 2px;
     width: 190px;
 }
 
@@ -58,5 +65,3 @@ h1 {
     padding-left: 8px;
     padding-right: 8px;
 }
-
-
