@@ -67,7 +67,7 @@ body.addEventListener("keydown", e => {
 
     //Handle dot
     if (e.key === '.') {
-        if (!isDecimal) {
+        if (!isDecimal && !isAns) {
         display.textContent += ".";
         isDecimal = true;
         }
@@ -185,7 +185,7 @@ function displayAns(expr) {
 
 //Add decimal functionality
 dotBtn.addEventListener("click", e => {
-    if (!isDecimal) {
+    if (!isDecimal && !isAns) {
     display.textContent += ".";
     isDecimal = true;
     }
