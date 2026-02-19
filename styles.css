@@ -16,8 +16,10 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 200px;
+    background-color: aliceblue;
+    padding: 6px;
 }
 
 .container .display {
@@ -34,17 +36,29 @@ h1 {
 
 .row-1,.row-2,.row-3,.row-4 {
     display: flex;
-    margin-top: 8px;
-    width: 150px;
-    gap: 25px
+    margin-top: 3px;
+    width: 190px;
 }
 
 .numbers, .operator, .clear, .ans, .dot, .back {
     height: 35px;
-    width: 40px;
+    width: 45px;
     box-sizing: border-box;
     text-align: center;
     font-size: 23px;
+    background-color: rgba(9, 136, 156, 0.947);
+    color: white;
+    /* border: 1px solid black; */
+    margin: 2px;
+    padding: 4px;
+    flex: 1;
+    /* margin-left: 4px; */
+}
+
+.back {
+    width: 150px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 
